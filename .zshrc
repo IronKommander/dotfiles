@@ -24,7 +24,7 @@ PROMPT_EOL_MARK=''
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/home/aryan/.cargo/bin"
 
-text="the end is never the end."
+text="it is providence."
 width=$(tput cols)
 padding=$(((width - ${#text}) / 2))
 printf "%*s\033[31m%s\033[0m\n" $padding "" "$text"   
@@ -35,6 +35,7 @@ alias gs='git status'
 alias ga='git add .'
 alias gp='git push'
 alias vim='nvim'
+alias c='clear'
 alias clock='tty-clock -C 7 -b -B -c'
 alias yt-music='yt-dlp -x --audio-format opus --add-metadata --embed-thumbnail'
 bindkey "\e[3~" delete-char
