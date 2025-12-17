@@ -1,8 +1,9 @@
 {
   "layer": "top",
   "position": "top",
-  "autohide": true,
+  "autohide": false,
   "autohide-blocked": false,
+  "output": ["eDP-1","HDMI-A-1"],
   "exclusive": true,
   "passthrough": false,
   "gtk-layer-shell": true,

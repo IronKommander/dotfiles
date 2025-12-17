@@ -39,3 +39,5 @@ alias c='clear'
 alias clock='tty-clock -C 7 -b -B -c'
 alias yt-music='yt-dlp -x --audio-format opus --add-metadata --embed-thumbnail'
 bindkey "\e[3~" delete-char
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
