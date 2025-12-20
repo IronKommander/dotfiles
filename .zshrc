@@ -23,7 +23,7 @@ alias config='/usr/bin/git --git-dir=/home/aryan/.cfg/ --work-tree=/home/aryan'
 PROMPT_EOL_MARK=''
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/home/aryan/.cargo/bin"
-
+export PATH="$PATH:/usr/local/go/bin"
 text="it is providence."
 width=$(tput cols)
 padding=$(((width - ${#text}) / 2))
