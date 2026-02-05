@@ -57,7 +57,7 @@ window#waybar.hidden {
 #temperature,
 #idle_inhibitor,
 #pulseaudio,
-#pulseaudio_slider,
+#pulseaudio-slider,
 #network,
 #tray,
 #battery,
@@ -224,9 +224,34 @@ window#waybar.hidden {
   background: #313244;
 }
 
-#pulseaudio_slider {
-  color: #1E1E2E;
-  background: #A6E3A1;
+#pulseaudio-slider {
+    color: #F38BA8;
+    background: #000000;
+    padding: 0;
+    margin: 0;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#pulseaudio-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 100;
+    background-image: none;
+    border: none;
+}
+#pulseaudio-slider trough {
+    min-height: 10px;
+    min-width: 80px;
+    border-radius: 5px;
+    background: black;
+}
+#pulseaudio-slider highlight {
+    min-width: 10px;
+    border-radius: 5px;
+    background: green;
 }
 
 #network {

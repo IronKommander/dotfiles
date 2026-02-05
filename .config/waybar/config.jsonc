@@ -23,7 +23,6 @@
     "tray",
     "idle_inhibitor",
     "backlight",
-    "pulseaudio_slider",
     "pulseaudio",
     "custom/cava",
     "custom/cmus",
@@ -111,14 +110,10 @@
     "format": "{percent}% {icon}",
     "format-icons": ["", ""]
   },
-  "pulseaudio_slider": {
-    "format": "{volume}%",
-    "tooltip": false,
-    "on-click": "pavucontrol"
-  },
   "pulseaudio": {
     "format": "{volume}% {icon}",
     "format-muted": " moot",
+    "format-source-muted": "M",
     "format-icons": {
       "default": [
         "",
@@ -155,7 +150,7 @@
     "format-en": "ENG"
   },
   "cava": {
-        "cava_config": "~/.config/cava/config",
+        // "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
         "framerate": 30,
         "autosens": 1,
         "sensitivity": 100,
@@ -177,7 +172,7 @@
         "actions": {
                    "on-click-right": "mode"
                    }
-  },
+    },
   "custom/cmus": {
     "format": "{text}",
     "interval": 4,

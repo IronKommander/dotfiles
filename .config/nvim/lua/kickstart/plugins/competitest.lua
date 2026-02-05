@@ -34,7 +34,7 @@ return {
 		},
 	},
 	runner_ui = {
-		interface = "popup",
+		interface = "split",
 		selector_show_nu = false,
 		selector_show_rnu = false,
 		show_nu = true,

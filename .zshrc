@@ -41,3 +41,45 @@ alias yt-music='yt-dlp -x --audio-format opus --add-metadata --embed-thumbnail'
 bindkey "\e[3~" delete-char
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+wallpaper() {
+  [[ -z $1 ]] && return 1
+  local img=$1
+
+  # ensure hyprctl is available
+  if ! command -v hyprctl >/dev/null; then
+    echo "wallpaper: hyprctl not found in PATH" >&2
+    return 1
+  fi
+
+  # wait for hyprland socket a short time (avoid long blocking)
+  local tries=0
+  while ! hyprctl monitors >/dev/null 2>&1; do
+    ((tries++)) || true
+    (( tries > 12 )) && { echo "wallpaper: hyprland not responding" >&2; return 1; }
+    sleep 0.25
+  done
+
+  # unload/preload (show errors)
+  hyprctl hyprpaper unload all || echo "unload failed" >&2
+  hyprctl hyprpaper preload "$img" || echo "preload failed" >&2
+
+  # get monitors robustly: try common field then fallback to last field
+  local -a MONITORS
+  MONITORS=("${(@f)$(hyprctl monitors | awk '/Monitor/ {print $2}')}")
+  if (( ${#MONITORS[@]} == 0 )); then
+    MONITORS=("${(@f)$(hyprctl monitors | awk '/Monitor/ {print $NF}')}")
+  fi
+
+  if (( ${#MONITORS[@]} == 0 )); then
+    echo "wallpaper: couldn't parse monitors output" >&2
+    hyprctl monitors | sed -n '1,20p' >&2
+    return 1
+  fi
+
+  for m in "${MONITORS[@]}"; do
+    hyprctl hyprpaper wallpaper "$m,$img" || echo "set wallpaper for $m failed" >&2
+  done
+
+  return 0
+}
