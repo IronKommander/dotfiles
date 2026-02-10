@@ -9,9 +9,16 @@ return {
     config = function()
       ---@diagnostic disable-next-line: missing-fields
       require('nightfox').setup {
-        styles = {
-          comments = { italic = false }, -- Disable italics in comments
+        palletes = {
+          nightfox = {
+            comment = "#60728a",
+          }
         },
+        options = {
+          styles = {
+            comments = "italic,bold", -- Disable italics in comments
+          },
+        }
       }
 
       -- Load the colorscheme here.

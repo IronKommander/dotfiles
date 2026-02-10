@@ -1,4 +1,4 @@
-
+source /etc/environment
 # The following lines were added by compinstall
 
 zstyle ':completion:*' completer _complete _ignored
@@ -35,6 +35,7 @@ alias gs='git status'
 alias ga='git add .'
 alias gp='git push'
 alias vim='nvim'
+alias v='nvim .'
 alias c='clear'
 alias clock='tty-clock -C 7 -b -B -c'
 alias yt-music='yt-dlp -x --audio-format opus --add-metadata --embed-thumbnail'

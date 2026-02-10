@@ -86,12 +86,30 @@ vim.opt.completeopt = { "menuone", "noselect", "popup", "noinsert" }
 
 -- Templates
 
-vim.cmd([[
+local function load_template(pattern, template_path)
+  vim.api.nvim_create_autocmd({ "BufNewFile", "BufReadPost" }, {
+    pattern = pattern,
+    callback = function()
+      -- specific file path
+      local file = vim.fn.expand("%")
+      -- check if file is empty (0 bytes) or doesn't exist yet (-1)
+      if vim.fn.getfsize(file) <= 0 then
+        vim.cmd("0r " .. template_path)
+      end
+    end,
+  })
+end
 
+load_template("*.cpp", "~/.vim/templates/skeleton.cpp")
+load_template("*.html", "~/.vim/templates/skeleton.html")
+load_template("*.java", "~/.vim/templates/skeleton.java")
+
+vim.cmd([[
 	autocmd filetype cpp nnoremap <F10> :w <bar> exec 'term clear && g++ '.shellescape('%').' -fsanitize=undefined -fno-sanitize-recover -fsanitize=address -Wconversion -Wall -Wextra -O2 -pedantic -o main && ./main'<CR>
 	autocmd filetype sh nnoremap <F5> :w <bar> exec 'term clear && bash %'<CR>
 	autocmd filetype javascript nnoremap <F5> :w <bar> exec 'term clear && node %'<CR>
-    :autocmd BufNewFile *.cpp 0r ~/.vim/templates/skeleton.cpp 
-    :autocmd BufNewFile *.html 0r ~/.vim/templates/skeleton.html
-
+	autocmd filetype java nnoremap <F5> :w <bar> exec 'term clear && java %'<CR>
+    ":autocmd BufNewFile *.cpp 0r ~/.vim/templates/skeleton.cpp 
+    ":autocmd BufNewFile *.html 0r ~/.vim/templates/skeleton.html
+    ":autocmd BufNewFile *.java 0r ~/.vim/templates/skeleton.java
 ]])
