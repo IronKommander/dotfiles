@@ -7,10 +7,8 @@ return {
             "nvim-tree/nvim-web-devicons",
         },
         config = function()
-
             require("nvim-tree").setup({
             })
-
             vim.keymap.set("n", "<leader>v", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
         end,
     }

@@ -24,6 +24,7 @@ PROMPT_EOL_MARK=''
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/home/aryan/.cargo/bin"
 export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:/home/aryan/spring-4.0.2/bin"
 text="it is providence."
 width=$(tput cols)
 padding=$(((width - ${#text}) / 2))
@@ -40,6 +41,8 @@ alias c='clear'
 alias clock='tty-clock -C 7 -b -B -c'
 alias yt-music='yt-dlp -x --audio-format opus --add-metadata --embed-thumbnail'
 bindkey "\e[3~" delete-char
+bindkey -v
+export KEYTIMEOUT=1
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
