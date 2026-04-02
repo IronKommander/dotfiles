@@ -1,296 +1,118 @@
+@define-color hud-blue #5e9bc0;
+@define-color hud-bright #8bd1ff;
+@define-color hud-bg rgba(12, 22, 33, 0.85);
+@define-color hud-alert #d15858;
 
-/* -- Global rules -- */
 * {
   border: none;
-  font-family: "JetBrains Mono";
-  font-size: 15px;
-  min-height: 10px;
+  font-family: "JetBrains Mono", sans-serif;
 }
 
-@define-color foreground	#f8f8f2;
-@define-color background	rgba(40, 42, 54, 0.5);
-@define-color orange	#ffb86c;
-@define-color gray	#44475a;
-@define-color black #21222c;
-@define-color red	#ff5555;
-@define-color green	#89B4FA;
-@define-color yellow	#f1fa8c;
-@define-color cyan	#8be9fd;
-@define-color blue	#6272a4;
-@define-color purple	#bd93f9;
-@define-color pink	#ff79c6;
-@define-color white #ffffff;
-@define-color brred #ff6e6e;
-@define-color brgreen #69ff94;
-@define-color bryellow #ffffa5;
-@define-color brcyan #a4ffff;
-@define-color brblue #6272a4;
-@define-color brpurple #d6acff;
-@define-color brpink #ff92df;
-
-@define-color arch_blue #89b4fa;
-@define-color workspace_background	@background;
-@define-color workspace_button	@foreground;
-@define-color workspace_active	@black;
-@define-color workspace_active_background	@green;
-@define-color workspace_urgent	@white;
-@define-color workspace_urgent_background	@brred;
-@define-color workspace_hover	@black;
-@define-color workspace_hover_background	@pink;
-@define-color critical	@red;
-@define-color warning	@yellow;
-
 window#waybar {
-  background: rgba(24, 25, 38, 0);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+menu, menuitem {
+  min-height: 0px;
+  font-weight: normal;
+  letter-spacing: 0px;
+  font-size: 13px;
 }
 
 window#waybar.hidden {
   opacity: 0;
 }
 
-/* - General rules for visible modules -- */
-#custom-archicon,
-#clock,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#idle_inhibitor,
-#pulseaudio,
-#pulseaudio-slider,
-#network,
-#tray,
-#battery,
-#language,
-#cava,
-#custom-cmus,
-#backlight {
-  color: #ECEFF4;
-  margin-top: 6px;
-  margin-bottom: 6px;
-  padding-left: 10px;
-  padding-right: 10px;
+#clock, #cpu, #memory, #disk, #temperature,
+#tray, #idle_inhibitor, #backlight, #pulseaudio,
+#custom-cmus, #cava, #network, #battery {
+  background: @hud-bg;
+  color: @hud-blue;
+  margin: 2px 3px; 
+  padding: 4px 10px;
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9), 0 0 4px rgba(94, 155, 192, 0.6);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
   transition: none;
-}
-
-/* Separation to the left */
-#custom-archicon,
-#cpu,
-#idle_inhibitor {
-  margin-left: 5px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-
-/* Separation to the right */
-#clock,
-#temperature,
-#language {
-  margin-right: 5px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-/* -- Specific styles -- */
-
-/* Modules left */
-#custom-archicon {
-  font-size: 20px;
-  color: #A6E3A1;
-  background: #1E1E2E;
-  padding-right: 17px;
+  min-height: 28px;
 }
 
 #clock {
-  background: #89B4FA;
-  color: #1E1E2E;
+  color: @hud-bright;
+  border-bottom: 2px solid @hud-bright;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9), 0 0 4px @hud-bright;
 }
 
-#cpu {
-  background: #F38BA8;
-  color: #1E1E2E
+#cpu, #memory, #disk, #temperature {
+  border-bottom: 1px solid rgba(94, 155, 192, 0.4);
 }
 
-#memory {
-  background: #F9E2AF;
-  color: #1E1E2E;
-}
-
-#disk {
-  background: #B4BEFE;
-  color: #1E1E2E;
-}
-
-#temperature {
-  background: #94E2D5;
-  color: #1E1E2E;
-}
-
-/* Modules center */
-/*#workspaces {
-  background: rgba(30, 30, 46, 0.7);
-  border-radius: 10px;
-  margin: 6px 5px;
-  padding: 0px 6px;
+#workspaces {
+  background: transparent;
+  padding: 0;
+  margin: 2px 10px; 
 }
 
 #workspaces button {
-  color: #BAC2DE;
+  color: rgba(94, 155, 192, 0.4);
   background: transparent;
-  padding: 4px 4px;
-  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
-}
-
-#workspaces button.occupied {
-  color: #A6E3A1;
-}
-
-#workspaces button.active {
-  color: #89B4FA;
-  text-shadow: 0 0 4px #89B4FA;
-}
-
-#workspaces button:hover {
-  color: #F5C2E7;
-}
-*/
-
-#workspaces {
-    background: @workspace_background;
-    opacity: 1;
-    transition: none;
-    margin: 6px 5px;
-    padding: 0px 6px;
-    border-radius: 10px;
-}
-
-#workspaces button, #workspaces button.persistent {
-    background: transparent;
-    color: @workspace_button;
-    transition: none;
+  padding: 0 12px; 
+  margin: 0 2px;
+  border-radius: 0;
+  border: 1px solid transparent;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  transition: none;
 }
 
 #workspaces button.active {
-    background: @workspace_active_background;
-    color: @workspace_active;
-/*
-    border-top: 2px solid @pink;
-    border-bottom: 2px solid @pink;
-*/
+  color: @hud-bright;
+  background: @hud-bg;
+  border-top: 2px solid @hud-bright;
+  border-bottom: 2px solid @hud-bright;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9), 0 0 5px @hud-bright;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 #workspaces button.urgent {
-    background: @workspace_urgent_background;
-    color: @workspace_urgent;
-    border-radius: 5px;
+  color: @hud-alert;
+  border-top: 2px solid @hud-alert;
+  border-bottom: 2px solid @hud-alert;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9), 0 0 4px @hud-alert;
 }
 
 #workspaces button:hover {
-    background: @workspace_hover_background;
-    color: @workspace_hover;
-    border-radius: 5px;
+  color: @hud-blue;
+  border-bottom: 1px solid @hud-blue;
 }
 
-/* Modules right */
-#taskbar {
-  background: transparent;
-  border-radius: 10px;
-  padding: 0px 5px;
-  margin: 6px 5px;
-}
-
-#taskbar button {
-  padding: 0px 5px;
-  margin: 0px 3px;
-  border-radius: 6px;
-  transition: background 0.3s ease;
-}
-
-#taskbar button.active {
-  background: rgba(137, 180, 250, 0.2);
-}
-
-#taskbar button:hover {
-  background: rgba(180, 190, 254, 0.2);
-}
-
-#idle_inhibitor {
-  background: #F5C2E7;
-  color: #1E1E2E;
-  padding-right: 15px;
-}
-
-#pulseaudio {
-  background: #313244;
-}
-
-#pulseaudio-slider {
-    color: #F38BA8;
-    background: #000000;
-    padding: 0;
-    margin: 0;
-  margin-top: 6px;
-  margin-bottom: 6px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-#pulseaudio-slider slider {
-    min-height: 0px;
-    min-width: 0px;
-    opacity: 100;
-    background-image: none;
-    border: none;
-}
-#pulseaudio-slider trough {
-    min-height: 10px;
-    min-width: 80px;
-    border-radius: 5px;
-    background: black;
-}
-#pulseaudio-slider highlight {
-    min-width: 10px;
-    border-radius: 5px;
-    background: green;
-}
-
-#network {
-  background: #89DCEB;
-  color: #1E1E2E;
-  padding-right: 13px;
+#tray, #idle_inhibitor, #backlight, #pulseaudio, #custom-cmus, #cava, #network {
+  border-bottom: 1px solid rgba(94, 155, 192, 0.4);
 }
 
 #battery {
-  background: #CBA6F7;
-  color: #1E1E2E;
-  padding-right: 13px;
-  margin-right: 5px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-bottom: 1px solid rgba(94, 155, 192, 0.4);
+  margin-right: 8px;
 }
 
-#language {
-  background: #F9E2AF;
-  color: #1E1E2E;
-  padding-right: 15px;
+#battery.charging {
+  color: @hud-bright;
+  border-bottom: 2px solid @hud-bright;
 }
 
-#cava {
-  background: #45475A;
+@keyframes glitch-blink {
+  0% { color: @hud-alert; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9), 0 0 5px @hud-alert; background: rgba(209, 88, 88, 0.1); border-bottom: 2px solid @hud-alert; }
+  50% { color: transparent; text-shadow: none; background: transparent; border-bottom: 2px solid transparent; }
+  100% { color: @hud-alert; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9), 0 0 5px @hud-alert; background: rgba(209, 88, 88, 0.1); border-bottom: 2px solid @hud-alert; }
 }
 
-#backlight{
-  background: #111111;
-}
-
-#custom-cmus{
-  background: linear-gradient(to right, #313244, red);
-  padding-left: 0px;
-}
-/* === Optional animation === */
-@keyframes blink {
-  to {
-    background-color: #F38BA8;
-    color: #1E1E2E;
-  }
+#battery.critical:not(.charging) {
+  color: @hud-alert;
+  animation-name: glitch-blink;
+  animation-duration: 0.6s;
+  animation-timing-function: steps(2, end);
+  animation-iteration-count: infinite;
 }

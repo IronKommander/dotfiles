@@ -3,178 +3,115 @@
   "position": "top",
   "autohide": false,
   "autohide-blocked": false,
-  "output": ["eDP-1","HDMI-A-1"],
+  "output": ["eDP-1", "HDMI-A-1"],
   "exclusive": true,
   "passthrough": false,
   "gtk-layer-shell": true,
-  /* === Modules Order === */
+  
   "modules-left": [
-    "custom/archicon",
     "clock",
     "cpu",
     "memory",
     "disk",
     "temperature",
+    "tray"
   ],
   "modules-center": [
     "hyprland/workspaces"
   ],
   "modules-right": [
-    "tray",
     "idle_inhibitor",
     "backlight",
     "pulseaudio",
-    "custom/cava",
     "custom/cmus",
     "cava",
     "network",
     "battery"
   ],
-  /* === Modules Left === */
-  "custom/archicon": {
-    "format": "🎩",
-    "on-click": "wofi --show drun",
-    "tooltip": false
-  },
+
   "clock": {
     "timezone": "India/Kolkata",
-    "format": "{:%I:%M %p  %d %b %Y}",
-    "tooltip-format": "{calendar}",
-    "calendar": {
-      "mode": "month"
-    }
+    "format": "{:%H%M HRS // %d/%m/%y}",
+    "tooltip-format": "{calendar}"
   },
   "cpu": {
-    "format": "{usage}% CPU",
-    "tooltip": true,
-    "tooltip-format": "Uso de CPU: {usage}%\nNúcleos: {cores}"
+    "format": "CPU // {usage}%",
+    "tooltip": true
   },
   "memory": {
-    "format": "{}% RAM",
+    "format": "RAM // {}%",
     "tooltip": true,
     "tooltip-format": "RAM used: {used} / {total} ({percentage}%)"
   },
   "disk": {
-    "format": "{percentage_free}% ",
+    "format": "DSK // {percentage_free}%",
     "tooltip": true,
     "tooltip-format": "Available free space: {free} / {total} ({percentage_free}%)"
   },
   "temperature": {
     "thermal-zone": 2,
     "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-    "format": "{temperatureC}°C {icon}",
-    "tooltip": true,
-    "tooltip-format": "Average temperature: {temperatureC}°C",
-    "format-icons": [
-      ""
-    ]
+    "format": "TMP // {temperatureC}°C"
   },
-  /* === Modules Center === */
+  
   "hyprland/workspaces": {
-    "format": "{icon}",
-    /*"format-icons": {
-      "default": "",
-      "active": "●"
-    },*/
+    "format": "{name}",
     "persistent-workspaces": {
-      "*": 0,
+      "*": 0
     },
     "disable-scroll": true,
     "all-outputs": true,
     "show-special": true
   },
-  /* === Modules Right === */
-   "tray": {
-        "spacing": 10
-   },
-  "wlr/taskbar": {
-    "format": "{icon}",
-    "all-outputs": true,
-    "active-first": true,
-    "tooltip-format": "{name}",
-    "on-click": "activate",
-    "on-click-middle": "close",
-    "ignore-list": [
-      "rofi"
-    ]
+  
+  "tray": {
+    "spacing": 10
   },
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
-      "activated": "",
-      "deactivated": ""
+      "activated": "SYS // AWAKE",
+      "deactivated": "SYS // AUTO"
     }
   },
   "backlight": {
     "device": "intel_backlight",
-    "format": "{percent}% {icon}",
-    "format-icons": ["", ""]
+    "format": "LUM // {percent}%"
   },
   "pulseaudio": {
-    "format": "{volume}% {icon}",
-    "format-muted": " moot",
-    "format-source-muted": "M",
-    "format-icons": {
-      "default": [
-        "",
-        "",    
-        "",
-        ]
-
-    }
+    "format": "VOL // {volume}%",
+    "format-muted": "VOL // MUTE"
   },
   "network": {
-    "format-wifi": "{essid}",
-    "format-disconnected": " ",
-    "tooltip-format": "{ifname} via {gwaddr}",
-    "tooltip-format-ethernet": " {ifname} {ipaddr}/{cidr}",
-    "tooltip-format-disconnected": "Disconnected",
-    "max-length": 50
+    "format-wifi": "NET // {essid}",
+    "format-ethernet": "NET // WIRED",
+    "format-disconnected": "NET // D/C",
   },
   "battery": {
-  "states": {
-    "warning": 30,
-    "critical": 15
-   },
-   "format": "{capacity}% {icon}",
-   "format-charging": " {capacity}% {icon}",
-   "format-full": " {capacity}%",
-   "format-icons": ["", "", "", "", ""],
-   "tooltip-format": "{time} left",
-   "interval": 5
+    "states": {
+      "warning": 30,
+      "critical": 15
     },
-  "hyprland/language": {
-    "format": "{} ",
-    "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next",
-    "format-es": "ESP",
-    "format-en": "ENG"
+    "format": "PWR // {capacity}%",
+    "format-charging": "PWR // {capacity}% [+]",
+    "format-full": "PWR // MAX",
+    "interval": 5
   },
   "cava": {
-        // "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
-        "framerate": 30,
-        "autosens": 1,
-        "sensitivity": 100,
-        "bars": 14,
-        "lower_cutoff_freq": 50,
-        "higher_cutoff_freq": 10000,
-        "hide_on_silence": false,
-        // "format_silent": "quiet",
-        "method": "pulse",
-        "source": "auto",
-        "stereo": true,
-        "reverse": false,
-        "bar_delimiter": 0,
-        "monstercat": false,
-        "waves": false,
-        "noise_reduction": 0.77,
-        "input_delay": 2,
-        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
-        "actions": {
-                   "on-click-right": "mode"
-                   }
-    },
+    "framerate": 30,
+    "autosens": 1,
+    "sensitivity": 100,
+    "bars": 14,
+    "lower_cutoff_freq": 50,
+    "higher_cutoff_freq": 10000,
+    "hide_on_silence": false,
+    "method": "pulse",
+    "source": "auto",
+    "format-icons": ["", " ", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
+  },
   "custom/cmus": {
-    "format": "{text}",
+    "format": "{}",
+    "max-length": 25,
     "interval": 4,
     "exec": "cmus-remote -Q | grep 'title ' | sed 's/.*title //' | awk '{print $1, $2, $3, $4, $5, $6}' | sed 's/[[:space:]]*$//' ",
     "exec-if": "pgrep cmus",

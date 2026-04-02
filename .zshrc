@@ -18,14 +18,14 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt autocd beep notify
 # End of lines configured by zsh-newuser-install
 eval "$(starship init zsh)"
-alias rm='rm -i'
+alias rm='sudo rm -i'
 alias config='/usr/bin/git --git-dir=/home/aryan/.cfg/ --work-tree=/home/aryan'
 PROMPT_EOL_MARK=''
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/home/aryan/.cargo/bin"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:/home/aryan/spring-4.0.2/bin"
-text="it is providence."
+text="for a brick, he flew pretty good!"
 width=$(tput cols)
 padding=$(((width - ${#text}) / 2))
 printf "%*s\033[31m%s\033[0m\n" $padding "" "$text"   
@@ -38,6 +38,7 @@ alias gp='git push'
 alias vim='nvim'
 alias v='nvim .'
 alias c='clear'
+alias ff='fastfetch'
 alias clock='tty-clock -C 7 -b -B -c'
 alias yt-music='yt-dlp -x --audio-format opus --add-metadata --embed-thumbnail'
 bindkey "\e[3~" delete-char
