@@ -49,6 +49,7 @@ if hardmode then
     vim.api.nvim_set_keymap('n', '<Right>', msg, { noremap = true, silent = false })
     vim.api.nvim_set_keymap('n', '<Leader>w', ':w<CR>', { noremap = true, silent = true })
 
+
     --vim.api.nvim_set_keymap('n', '<BS>', msg, { noremap = true, silent = false })
 end
 

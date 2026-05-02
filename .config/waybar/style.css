@@ -1,11 +1,11 @@
-@define-color hud-blue #5e9bc0;
-@define-color hud-bright #8bd1ff;
-@define-color hud-bg rgba(12, 22, 33, 0.85);
-@define-color hud-alert #d15858;
+@define-color hud-blue #7aa2f7;
+@define-color hud-bright #bb9af7;
+@define-color hud-bg rgba(26, 27, 38, 0.85);
+@define-color hud-alert #f7768e;
 
 * {
   border: none;
-  font-family: "JetBrains Mono", sans-serif;
+  font-family: "JetBrainsMono Nerd Font", sans-serif;
 }
 
 window#waybar {
@@ -35,7 +35,7 @@ window#waybar.hidden {
   padding: 4px 10px;
   border-radius: 0;
   border-bottom: 2px solid transparent;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9), 0 0 4px rgba(94, 155, 192, 0.6);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9), 0 0 4px rgba(122, 162, 247, 0.6);
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
   transition: none;
   min-height: 28px;
@@ -48,7 +48,7 @@ window#waybar.hidden {
 }
 
 #cpu, #memory, #disk, #temperature {
-  border-bottom: 1px solid rgba(94, 155, 192, 0.4);
+  border-bottom: 1px solid rgba(122, 162, 247, 0.4);
 }
 
 #workspaces {
@@ -58,7 +58,7 @@ window#waybar.hidden {
 }
 
 #workspaces button {
-  color: rgba(94, 155, 192, 0.4);
+  color: rgba(122, 162, 247, 0.4);
   background: transparent;
   padding: 0 12px; 
   margin: 0 2px;
@@ -90,11 +90,11 @@ window#waybar.hidden {
 }
 
 #tray, #idle_inhibitor, #backlight, #pulseaudio, #custom-cmus, #cava, #network {
-  border-bottom: 1px solid rgba(94, 155, 192, 0.4);
+  border-bottom: 1px solid rgba(122, 162, 247, 0.4);
 }
 
 #battery {
-  border-bottom: 1px solid rgba(94, 155, 192, 0.4);
+  border-bottom: 1px solid rgba(122, 162, 247, 0.4);
   margin-right: 8px;
 }
 
@@ -104,9 +104,9 @@ window#waybar.hidden {
 }
 
 @keyframes glitch-blink {
-  0% { color: @hud-alert; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9), 0 0 5px @hud-alert; background: rgba(209, 88, 88, 0.1); border-bottom: 2px solid @hud-alert; }
+  0% { color: @hud-alert; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9), 0 0 5px @hud-alert; background: rgba(247, 118, 142, 0.1); border-bottom: 2px solid @hud-alert; }
   50% { color: transparent; text-shadow: none; background: transparent; border-bottom: 2px solid transparent; }
-  100% { color: @hud-alert; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9), 0 0 5px @hud-alert; background: rgba(209, 88, 88, 0.1); border-bottom: 2px solid @hud-alert; }
+  100% { color: @hud-alert; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9), 0 0 5px @hud-alert; background: rgba(247, 118, 142, 0.1); border-bottom: 2px solid @hud-alert; }
 }
 
 #battery.critical:not(.charging) {
