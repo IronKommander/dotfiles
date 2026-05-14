@@ -89,3 +89,4 @@ wallpaper() {
 
 #GAMES
 alias hk="WINEPREFIX=~/Games/HK_PREF PROTONPATH=GE-Proton umu-run ~/Games/Hollow\ Knight/hollow_knight.exe"
+alias uk="WINEPREFIX=~/Games/UK_PREF PROTONPATH=GE-Proton umu-run ~/Games/ULTRAKILL/ULTRAKILL.exe"
