@@ -4,30 +4,41 @@ return {
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'EdenEast/nightfox.nvim',
-    priority = 1000, -- Make sure to load this before all the other start plugins.
-    config = function()
-      ---@diagnostic disable-next-line: missing-fields
-      require('nightfox').setup {
-        palletes = {
-          nightfox = {
-            comment = "#60728a",
-          }
-        },
-        options = {
-          styles = {
-            comments = "italic,bold", -- Disable italics in comments
-          },
-        }
-      }
+    -- 'EdenEast/nightfox.nvim',
+    -- priority = 1000, -- Make sure to load this before all the other start plugins.
+    -- config = function()
+    --   ---@diagnostic disable-next-line: missing-fields
+    --   require('nightfox').setup {
+    --     palletes = {
+    --       nightfox = {
+    --         comment = "#60728a",
+    --       }
+    --     },
+    --     options = {
+    --       styles = {
+    --         comments = "italic,bold", -- Disable italics in comments
+    --       },
+    --     }
+    --   }
+    --
+    --   -- Load the colorscheme here.
+    --   -- Like many other themes, this one has different styles, and you could load
+    --   -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+    --   vim.cmd.colorscheme 'carbonfox'
+    --   vim.o.background='dark'
+    --   vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
+    -- end,
 
-      -- Load the colorscheme here.
-      -- Like many other themes, this one has different styles, and you could load
-      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'carbonfox'
-      vim.o.background='dark'
+    "zenbones-theme/zenbones.nvim",
+    dependencies = "rktjmp/lush.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.o.background = 'dark'
+      vim.g.zenbones_darken_comments = 45
+      vim.cmd.colorscheme('zenbones')
       vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
-    end,
+    end
   },
 }
 -- vim: ts=2 sts=2 sw=2 et

@@ -5,7 +5,7 @@ return {
     config = function()
       require('lualine').setup {
         options = {
-          theme = 'carbonfox',
+          theme = 'zenbones',
           section_separators = '',
           component_separators = '',
         },

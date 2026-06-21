@@ -19,6 +19,7 @@ setopt autocd beep notify
 # End of lines configured by zsh-newuser-install
 eval "$(starship init zsh)"
 export EDITOR="nvim"
+export VISUAL="$EDITOR"
 alias rm='sudo rm -i'
 alias config='/usr/bin/git --git-dir=/home/IronKommander/.cfg/ --work-tree=/home/IronKommander'
 PROMPT_EOL_MARK=''
@@ -26,10 +27,6 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/home/IronKommander/.cargo/bin"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:/home/IronKommander/spring-4.0.2/bin"
-text="for a brick, he flew pretty good!"
-width=$(tput cols)
-padding=$(((width - ${#text}) / 2))
-printf "%*s\033[31m%s\033[0m\n" $padding "" "$text"   
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -90,3 +87,4 @@ wallpaper() {
 #GAMES
 alias hk="WINEPREFIX=~/Games/HK_PREF PROTONPATH=GE-Proton umu-run ~/Games/Hollow\ Knight/hollow_knight.exe"
 alias uk="WINEPREFIX=~/Games/UK_PREF PROTONPATH=GE-Proton umu-run ~/Games/ULTRAKILL/ULTRAKILL.exe"
+alias gta4='WINEPREFIX=~/Games/GTA4_PREF/ PROTONPATH=GE-Proton umu-run "~/Games/Grand Theft Auto IV - The Complete Edition/GTAIV.exe"'

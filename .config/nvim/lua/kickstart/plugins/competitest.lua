@@ -103,7 +103,7 @@ return {
 		java = { exec = "java", args = { "$(FNOEXT)" } },
 	},
 	multiple_testing = -1,
-	maximum_time = 60000,
+	maximum_time = 10000,
 	output_compare_method = "squish",
 	view_output_diff = false,
 
