@@ -39,6 +39,7 @@ alias c='clear'
 alias ff='fastfetch'
 alias clock='tty-clock -C 7 -b -B -c'
 alias yt-music='yt-dlp -x --audio-format opus --add-metadata --embed-thumbnail'
+alias sybau='yay -Syu'
 bindkey "\e[3~" delete-char
 bindkey -v
 export KEYTIMEOUT=1
@@ -88,3 +89,7 @@ wallpaper() {
 alias hk="WINEPREFIX=~/Games/HK_PREF PROTONPATH=GE-Proton umu-run ~/Games/Hollow\ Knight/hollow_knight.exe"
 alias uk="WINEPREFIX=~/Games/UK_PREF PROTONPATH=GE-Proton umu-run ~/Games/ULTRAKILL/ULTRAKILL.exe"
 alias gta4='WINEPREFIX=~/Games/GTA4_PREF/ PROTONPATH=GE-Proton umu-run "~/Games/Grand Theft Auto IV - The Complete Edition/GTAIV.exe"'
+alias mw3='WINEPREFIX=~/Games/MW3_PREF PROTONPATH=GE-Proton umu-run "~/Games/Call of Duty - Modern Warfare 3/iw5sp.exe"'
+# alias sekiro='cd ~/Games/Sekiro/ && LD_PRELOAD="" WINEPREFIX=~/Games/SEKIRO_PREF PROTONPATH=GE-Proton DXVK_ASYNC=1 MESA_VK_WSI_PRESENT_MODE=immediate gamemoderun gamescope -W 1920 -H 1200 -w 576 -h 360 -r 60 -f -F fsr --force-grab-cursor -- umu-run "~/Games/Sekiro/sekiro.exe"'
+alias eldenring="WINEPREFIX=~/Games/ELDENRING PROTONPATH=GE-Proton umu-run '/mnt/windows/Games/ELDEN RING/Game/eldenring.exe'"
+# alias sekiro = "cd ~/Games/Sekiro/ && LD_PRELOAD="" WINEPREFIX=~/Games/SEKIRO_PREF GAMEID=umu-814380 PROTONPATH=GE-Proton gamemoderun umu-run sekiro.exe"
